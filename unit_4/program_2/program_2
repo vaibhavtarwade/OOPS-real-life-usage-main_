@@ -1,0 +1,31 @@
+// Program 2: Read a File Line by Line
+// Concept: ifstream, getline()
+
+#include <fstream>
+#include <iostream>
+#include <string>
+
+int main() {
+    // Open the file for reading
+    std::ifstream inputFile("message.txt");
+
+    // Check whether the file opened successfully
+    if (!inputFile) {
+        std::cerr << "Error: Could not open message.txt\n";
+        return 1;
+    }
+
+    std::string line;
+
+    std::cout << "File Content:\n";
+
+    // Read the file one line at a time
+    while (std::getline(inputFile, line)) {
+        std::cout << line << '\n';
+    }
+
+    // Close the file
+    inputFile.close();
+
+    return 0;
+}
